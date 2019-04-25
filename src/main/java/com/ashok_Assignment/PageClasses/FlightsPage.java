@@ -43,10 +43,29 @@ public class FlightsPage extends BaseClass {
 	@FindBy(xpath="//div[@class='footer-fare']/p/span/span")
 	private WebElement totalPrice;
 	
+	@FindBy(xpath="//div[@class='pull-left font14 LatoBold splitVw-sort-sctn']/p")
+	private List<WebElement> dateAndPlace;
+	
 	public FlightsPage(){
 		PageFactory.initElements(driver, this);
 	}
 	
+	public void get_Place_and_Date(){
+		System.out.println("******Journy Details******");
+		System.out.println("");
+		int i=1;
+		
+		for(WebElement element:dateAndPlace){
+			String placeDetails=element.getText();
+			System.out.println(placeDetails);
+			if(i==2){
+				System.out.println("");
+			}
+			i++;
+		}
+		System.out.println("");
+		
+	}
 	//Reset all checkboxes
 	public void resetAllCheckBoxes(){
           reset.click();

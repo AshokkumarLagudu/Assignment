@@ -7,12 +7,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.ashok_Assignment.Base.BaseClass;
+import com.ashok_Assignment.PageClasses.FlightsPage;
 import com.ashok_Assignment.PageClasses.HomePage;
 import com.ashok_Assignment.utils.UtilClass;
 
 public class HomePageTest extends BaseClass {
 
 	public HomePage homePage;
+	public FlightsPage flightsPage;
 	public HomePageTest(){
 		super();
 	}
@@ -22,6 +24,7 @@ public class HomePageTest extends BaseClass {
 	public void openBrowser(){
 		initialization();
 		homePage=new HomePage();
+		
 	}
 	 
 	//validate home page title
@@ -47,7 +50,11 @@ public class HomePageTest extends BaseClass {
 		homePage.clickOnReturnDate();
 		homePage.selectReturnDate(dateoftoday,UtilClass.returnDateAfterNoOfDays);
 		
-		homePage.clickOnSearch();
+		flightsPage=homePage.clickOnSearch();
+		
+		System.out.println("Title of the page-->"+flightsPage.get_title_Of_FlightPage());
+		Assert.assertEquals(flightsPage.get_title_Of_FlightPage(), UtilClass.flightPageTitle);
+		
 		
 	}
 	

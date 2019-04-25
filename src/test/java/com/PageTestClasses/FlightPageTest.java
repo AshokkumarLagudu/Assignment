@@ -60,6 +60,14 @@ public class FlightPageTest extends BaseClass {
 		Assert.assertEquals(activeFlightLogo, true);
 
 		Assert.assertEquals(flightsPage.get_title_Of_FlightPage(), UtilClass.flightPageTitle);
+		System.out.println("Title of the flight page-->"+flightsPage.get_title_Of_FlightPage());
+		
+		try {
+			flightsPage.get_Place_and_Date();
+		} catch (Exception e) {
+			
+			System.out.println("****Error while geting Journy details****");
+		}
 	}
 
 	//print number of all type of Flights present on the page
