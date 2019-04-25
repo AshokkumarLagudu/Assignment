@@ -76,7 +76,7 @@ public class FlightPageTest extends BaseClass {
 		System.out.println("Total NoOf_ReturnFlights = " + totalReturnFlights);
 
 		System.out.println("");
-		System.out.println("===============================================");
+		
 		totalDFlights=totaldepartureFlights;
 		totalRFlights=totalReturnFlights;
 	}
@@ -142,9 +142,9 @@ public class FlightPageTest extends BaseClass {
         //validating top ten flights price ten times by selecting random flights
 		for (int i = 1; i <=10; i++) {
 
-			//get random departure flights numbers to select
+			//get random departure flights numbers between 1 and maxDepFlightValue
 			int depFlightNum=UtilClass.get_Random_Number(maxDepFlightValue);
-			//get random return flights numbers to select
+			//get random return flights numbers between 1 and maxRetFlightValue
 			int retFlightNum=UtilClass.get_Random_Number(maxRetFlightValue);
 			
 			//click on departure flight radio button

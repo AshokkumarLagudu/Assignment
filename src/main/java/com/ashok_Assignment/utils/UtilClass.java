@@ -58,9 +58,10 @@ public class UtilClass {
         return thisMonth;
 	}
 	
+	//get random number between 1 and number
 	public static int get_Random_Number(int number){
 		Random rn = new Random();
-    	int answer = rn.nextInt(10)+1;
+    	int answer = rn.nextInt(number)+1;
     	return answer;
 	}
 	
