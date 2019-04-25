@@ -41,7 +41,7 @@ public class FlightPageTest extends BaseClass {
 		homePage.clickOnRoundtrip();
 		homePage.setDepartureCity("Delhi");
 
-		homePage.setArrivalCity("Bangalore");
+		homePage.setDestinationCity("Bangalore");
 
 		String dateoftoday = homePage.clickOnTodayDate();
 

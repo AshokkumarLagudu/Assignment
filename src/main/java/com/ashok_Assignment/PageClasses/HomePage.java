@@ -153,7 +153,7 @@ public class HomePage extends BaseClass {
 	}
 
 	//Enter city name in To texbox
-	public void setArrivalCity(String cityName) {
+	public void setDestinationCity(String cityName) {
 		wait.until(ExpectedConditions.elementToBeClickable(toButton));
 		toTextBox.sendKeys(cityName);
 

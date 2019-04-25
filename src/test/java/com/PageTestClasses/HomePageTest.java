@@ -34,13 +34,13 @@ public class HomePageTest extends BaseClass {
 	//Enter the details in From and To texboxes 
 	//click on the Search box
 	@Test(priority=2)
-	public void bookTicketTest(){
+	public void searchFlightsTest(){
 		
 		homePage.clickOnFlights();
 		homePage.clickOnRoundtrip();
 		homePage.setDepartureCity("Delhi");
 		
-		homePage.setArrivalCity("Bangalore");
+		homePage.setDestinationCity("Bangalore");
 		
 		String dateoftoday=homePage.clickOnTodayDate();
 		

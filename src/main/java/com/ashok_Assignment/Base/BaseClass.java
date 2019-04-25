@@ -46,7 +46,7 @@ public class BaseClass {
 			System.setProperty("webdriver.chrome.driver", prop.getProperty("chromeDriverPath"));
 			driver=new ChromeDriver();
 		}else if(browserName.equals("firefox")){
-			System.setProperty("webdriver.chrome.driver", prop.getProperty("firefoxDriverPath"));
+			System.setProperty("webdriver.gecko.driver", prop.getProperty("firefoxDriverPath"));
 			driver=new FirefoxDriver();
 
 		}

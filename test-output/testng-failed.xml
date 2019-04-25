@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Selenium_Coding_Assignment_21-04-2019_suite]">
-  <listeners>
-    <listener class-name="com.ashok_Assignment.Listeners.ExtentReportGen"/>
-    <listener class-name="com.ashok_Assignment.Listeners.TestListener"/>
-  </listeners>
-  <test name="makeMytripFilghtPage(failed)">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.PageTestClasses.FlightPageTest">
+      <class name="com.PageTestClasses.HomePageTest">
         <methods>
-          <include name="selectFlightTest"/>
           <include name="closeBrowser"/>
+          <include name="searchFlightsTest"/>
           <include name="openBrowser"/>
-          <include name="display_noOf_Non_Stop_FlightTest"/>
-          <include name="validateFlightPageTest"/>
-          <include name="display_noOf_FlightTest"/>
-          <include name="display_noOf_One_Stop_FlightTest"/>
         </methods>
-      </class> <!-- com.PageTestClasses.FlightPageTest -->
+      </class> <!-- com.PageTestClasses.HomePageTest -->
     </classes>
-  </test> <!-- makeMytripFilghtPage(failed) -->
-</suite> <!-- Failed suite [Selenium_Coding_Assignment_21-04-2019_suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
