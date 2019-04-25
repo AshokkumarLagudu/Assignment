@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Selenium_Coding_Assignment_21-04-2019_suite]">
   <listeners>
-    <listener class-name="com.ashok_Assignment.extentReportListeners.ExtentReportGen"/>
-    <listener class-name="com.ashok_Assignment.extentReportListeners.TestListener"/>
+    <listener class-name="com.ashok_Assignment.Listeners.ExtentReportGen"/>
+    <listener class-name="com.ashok_Assignment.Listeners.TestListener"/>
   </listeners>
   <test name="makeMytripFilghtPage(failed)">
     <classes>

@@ -18,10 +18,10 @@ public class UtilClass {
 	//noOf days after current date 
 	public final static int returnDateAfterNoOfDays=7;//number should be currentDate+number<=61;
 	
-	public final static int wedriverWait=20;
+	public final static int wedriverWait=30;
 	public final static int pageloadTimeout=60;
 	
-	public final static String screenShotFilePath="C:\\Users\\ASHOK\\workspace\\Selenium_Coding_Assignment_21-04-2019\\Screenshots";
+	public final static String screenShotFilePath="C:\\Users\\ASHOK\\workspace\\Selenium_Coding_Assignment_21-04-2019\\Screenshots\\";
 	public final static String propFilePath="C:\\Users\\ASHOK\\workspace\\Selenium_Coding_Assignment_21-04-2019\\src\\main\\"
 				+ "java\\com\\ashok_Assignment\\configuration\\config.properties";
 	//page scrolling down upto end
