@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Selenium_Coding_Assignment_21-04-2019_suite]">
+  <listeners>
+    <listener class-name="com.ashok_Assignment.extentReportListeners.ExtentReportGen"/>
+    <listener class-name="com.ashok_Assignment.extentReportListeners.TestListener"/>
+  </listeners>
+  <test name="makeMytripFilghtPage(failed)">
+    <classes>
+      <class name="com.PageTestClasses.FlightPageTest">
+        <methods>
+          <include name="selectFlightTest"/>
+          <include name="closeBrowser"/>
+          <include name="openBrowser"/>
+          <include name="display_noOf_Non_Stop_FlightTest"/>
+          <include name="validateFlightPageTest"/>
+          <include name="display_noOf_FlightTest"/>
+          <include name="display_noOf_One_Stop_FlightTest"/>
+        </methods>
+      </class> <!-- com.PageTestClasses.FlightPageTest -->
+    </classes>
+  </test> <!-- makeMytripFilghtPage(failed) -->
+</suite> <!-- Failed suite [Selenium_Coding_Assignment_21-04-2019_suite] -->

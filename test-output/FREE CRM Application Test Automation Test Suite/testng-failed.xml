@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
+  <listeners>
+    <listener class-name="com.ashok_Assignment.extentReportListeners.ExtentReportGen"/>
+  </listeners>
+  <test name="Free CRM App Test Cases(failed)">
+    <classes>
+      <class name="com.PageTestClasses.FlightPageTest">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="openBrowser"/>
+          <include name="display_noOf_Non_Stop_FlightTest"/>
+          <include name="display_noOf_FlightTest"/>
+          <include name="display_noOf_One_Stop_FlightTest"/>
+        </methods>
+      </class> <!-- com.PageTestClasses.FlightPageTest -->
+      <class name="com.PageTestClasses.HomePageTest">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="bookTicketTest"/>
+          <include name="openBrowser"/>
+        </methods>
+      </class> <!-- com.PageTestClasses.HomePageTest -->
+    </classes>
+  </test> <!-- Free CRM App Test Cases(failed) -->
+</suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->

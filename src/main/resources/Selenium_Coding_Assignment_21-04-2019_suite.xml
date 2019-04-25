@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium_Coding_Assignment_21-04-2019_suite" thread-count="3" parallel="tests" >
+
+	<listeners>
+		<listener class-name="com.ashok_Assignment.Listeners.ExtentReportGen" />
+		<listener class-name="com.ashok_Assignment.Listeners.TestListener" />
+	</listeners>
+
+
+	<test name="makeMytripHomePage">
+		<classes>
+			<class name="com.PageTestClasses.HomePageTest"></class>	
+		</classes>
+	</test>
+	
+	<test name="makeMytripFilghtPage">
+		<classes>
+			<class name="com.PageTestClasses.FlightPageTest"></class>
+		</classes>
+	</test>
+</suite>
