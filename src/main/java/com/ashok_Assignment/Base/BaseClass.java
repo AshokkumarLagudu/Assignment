@@ -12,8 +12,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.ashok_Assignment.utils.DriverFactory;
 import com.ashok_Assignment.utils.UtilClass;
 
 
@@ -42,19 +45,7 @@ public class BaseClass {
 	//Initialize the browser
 	public void initialization(){
 		String browserName=prop.getProperty("browser");
-		if(browserName.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", prop.getProperty("chromeDriverPath"));
-			driver=new ChromeDriver();
-		}else if(browserName.equals("firefox")){
-			System.setProperty("webdriver.gecko.driver", prop.getProperty("firefoxDriverPath"));
-			driver=new FirefoxDriver();
-
-		}
-		
-		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(UtilClass.pageloadTimeout, TimeUnit.SECONDS);
-		driver.get(prop.getProperty("url"));
+		driver=DriverFactory.getDriver(prop.getProperty("browser"), prop.getProperty("url"), prop.getProperty("chromeDriverPath"));
 		
 	}
 	

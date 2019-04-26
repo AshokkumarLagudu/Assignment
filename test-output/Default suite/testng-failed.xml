@@ -3,13 +3,17 @@
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.PageTestClasses.HomePageTest">
+      <class name="com.PageTestClasses.FlightPageTest">
         <methods>
+          <include name="selectFlightTest"/>
           <include name="closeBrowser"/>
-          <include name="searchFlightsTest"/>
           <include name="openBrowser"/>
+          <include name="display_noOf_Non_Stop_FlightTest"/>
+          <include name="validateFlightPageTest"/>
+          <include name="display_noOf_FlightTest"/>
+          <include name="display_noOf_One_Stop_FlightTest"/>
         </methods>
-      </class> <!-- com.PageTestClasses.HomePageTest -->
+      </class> <!-- com.PageTestClasses.FlightPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -169,6 +169,7 @@ public class HomePage extends BaseClass {
 	//click on search button
 	public FlightsPage clickOnSearch() {
 		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		driver.manage().deleteAllCookies();
 		return new FlightsPage();
 	}
 

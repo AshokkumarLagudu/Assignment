@@ -32,6 +32,8 @@ public class HomePageTest extends BaseClass {
 	public void verifyHomepageTitle(){
 		String title=homePage.getHomePageTitle();
 		Assert.assertEquals(title, UtilClass.homepageTitle);
+		System.out.println("HomePage title->"+title);
+		System.out.println("");
 	}
 	
 	//Enter the details in From and To texboxes 

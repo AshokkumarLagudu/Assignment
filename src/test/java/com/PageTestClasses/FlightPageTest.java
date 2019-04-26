@@ -61,6 +61,7 @@ public class FlightPageTest extends BaseClass {
 
 		Assert.assertEquals(flightsPage.get_title_Of_FlightPage(), UtilClass.flightPageTitle);
 		System.out.println("Title of the flight page-->"+flightsPage.get_title_Of_FlightPage());
+		System.out.println("");
 		
 		try {
 			flightsPage.get_Place_and_Date();
@@ -100,13 +101,13 @@ public class FlightPageTest extends BaseClass {
 		int totaldepartureFlights = flightsPage.get_noOf_departureFlights();
 
 		System.out.println("================No Of Non Stop Flights===================");
-		System.out.println("Total NoOf_departureFlights = " + totaldepartureFlights);
+		System.out.println("Total NoOf_departureFlights = Rs." + totaldepartureFlights);
 
 		System.out.println("");
 
 		int totalReturnFlights = flightsPage.get_noOf_returnFlights();
 
-		System.out.println("Total NoOf_ReturnFlights = " + totalReturnFlights);
+		System.out.println("Total NoOf_ReturnFlights = Rs." + totalReturnFlights);
 
 		System.out.println("");
 		flightsPage.resetAllCheckBoxes();
@@ -171,16 +172,16 @@ public class FlightPageTest extends BaseClass {
 			int actualReturnPrice = flightsPage.get_actual_return_price();
 			
 			//print flights price on console
-			System.out.println("                      selected    Actual");
-			System.out.println("DepartureFlightPrice->Rs."+selectedDeparturePrice + "    Rs." + actualDeparturePrice);
-			System.out.println("ReturnFlightPriceo  ->Rs."+selectedReturnPrice + "     Rs." + actualReturnPrice);
+			System.out.println("                          selected    Actual");
+			System.out.println(depFlightNum+". DepartureFlightPrice->Rs."+selectedDeparturePrice + "    Rs." + actualDeparturePrice);
+			System.out.println(retFlightNum+". ReturnFlightPriceo  ->Rs."+selectedReturnPrice + "     Rs." + actualReturnPrice);
 			
 			//get total price flights
 			int totalSelected = selectedDeparturePrice + selectedReturnPrice;
 			
 			//print total price on console
-			System.out.println("Total Selected =" + totalSelected);
-			System.out.println("Tatal Actual =" + flightsPage.get_total_price());
+			System.out.println("Total Selected Flights Price = Rs." + totalSelected);
+			System.out.println("Tatal Actual Flights Price   = Rs." + flightsPage.get_total_price());
 			System.out.println("============================================");
 
 			//check flights price equal or not
