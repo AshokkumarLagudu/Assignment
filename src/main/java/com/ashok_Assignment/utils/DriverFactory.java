@@ -12,7 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DriverFactory {
 	
-	public static WebDriver driver;
+	private static WebDriver driver;
 	
 	//WebDriver setup
 	public static WebDriver getDriver(String browserName,String url,String driverLocationPath){
