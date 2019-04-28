@@ -40,20 +40,38 @@ public class HomePageTest extends BaseClass {
 	//click on the Search box
 	@Test(priority=2)
 	public void searchFlightsTest() throws InterruptedException{
-		Thread.sleep(3000);
-		homePage.closeImage();
-		homePage.clickOnFlights();
-		homePage.clickOnRoundtrip();
-		homePage.setDepartureCity("Delhi");
-		
-		homePage.setDestinationCity("Bangalore");
-		
-		String dateoftoday=homePage.clickOnTodayDate();
-		
-		homePage.clickOnReturnDate();
-		homePage.selectReturnDate(dateoftoday,UtilClass.returnDateAfterNoOfDays);
-		
-		flightsPage=homePage.clickOnSearch();
+		Thread.sleep(2000);
+		try {
+			
+			homePage.clickOnFlights();
+			homePage.clickOnRoundtrip();
+			homePage.setDepartureCity("Delhi");
+			
+			homePage.setDestinationCity("Bangalore");
+			
+			String dateoftoday=homePage.clickOnTodayDate();
+			
+			homePage.clickOnReturnDate();
+			homePage.selectReturnDate(dateoftoday,UtilClass.returnDateAfterNoOfDays);
+			
+			flightsPage=homePage.clickOnSearch();
+			
+		} catch (Exception e1) {
+			
+			homePage.closeImage();
+			homePage.clickOnFlights();
+			homePage.clickOnRoundtrip();
+			homePage.setDepartureCity("Delhi");
+			
+			homePage.setDestinationCity("Bangalore");
+			
+			String dateoftoday=homePage.clickOnTodayDate();
+			
+			homePage.clickOnReturnDate();
+			homePage.selectReturnDate(dateoftoday,UtilClass.returnDateAfterNoOfDays);
+			
+			flightsPage=homePage.clickOnSearch();
+		}
 		
 		System.out.println("Title of the page-->"+flightsPage.get_title_Of_FlightPage());
 		Assert.assertEquals(flightsPage.get_title_Of_FlightPage(), UtilClass.flightPageTitle);

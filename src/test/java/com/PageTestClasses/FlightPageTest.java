@@ -33,18 +33,34 @@ public class FlightPageTest extends BaseClass {
 		Assert.assertEquals(homePage.getHomePageTitle(), UtilClass.homepageTitle);
 		
 		//Thread.sleep(3000);
-		homePage.closeImage();
-		homePage.clickOnFlights();
-		homePage.clickOnRoundtrip();
-		homePage.setDepartureCity("Delhi");
+		try {
+			
+			homePage.clickOnFlights();
+			homePage.clickOnRoundtrip();
+			homePage.setDepartureCity("Delhi");
 
-		homePage.setDestinationCity("Bangalore");
+			homePage.setDestinationCity("Bangalore");
 
-		String dateoftoday = homePage.clickOnTodayDate();
+			String dateoftoday = homePage.clickOnTodayDate();
 
-		homePage.clickOnReturnDate();
-		homePage.selectReturnDate(dateoftoday, UtilClass.returnDateAfterNoOfDays);
-		flightsPage = homePage.clickOnSearch();
+			homePage.clickOnReturnDate();
+			homePage.selectReturnDate(dateoftoday, UtilClass.returnDateAfterNoOfDays);
+			flightsPage = homePage.clickOnSearch();
+		} catch (Exception e) {
+			
+			homePage.closeImage();
+			homePage.clickOnFlights();
+			homePage.clickOnRoundtrip();
+			homePage.setDepartureCity("Delhi");
+
+			homePage.setDestinationCity("Bangalore");
+
+			String dateoftoday = homePage.clickOnTodayDate();
+
+			homePage.clickOnReturnDate();
+			homePage.selectReturnDate(dateoftoday, UtilClass.returnDateAfterNoOfDays);
+			flightsPage = homePage.clickOnSearch();
+		}
 		
 	}
 

@@ -98,12 +98,12 @@ public class FlightsPage extends BaseClass {
 
 	// Scrolling page
 	public void pageScrollDown() throws InterruptedException {
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		int scroll = 2000;
 		for (int i = 0; i <= 10; i++) {
 			String scrollStr = Integer.toString(scroll);
 			UtilClass.scrollPageDown(driver, scrollStr);
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			scroll += 2000;
 		}
 

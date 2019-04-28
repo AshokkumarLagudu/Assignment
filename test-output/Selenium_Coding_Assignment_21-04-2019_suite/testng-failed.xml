@@ -6,6 +6,17 @@
     <listener class-name="com.ashok_Assignment.Listeners.TestListener"/>
     <listener class-name="com.ashok_Assignment.Listeners.RetryListenerClass"/>
   </listeners>
+  <test name="makeMytripHomePage(failed)">
+    <classes>
+      <class name="com.PageTestClasses.HomePageTest">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="searchFlightsTest"/>
+          <include name="openBrowser"/>
+        </methods>
+      </class> <!-- com.PageTestClasses.HomePageTest -->
+    </classes>
+  </test> <!-- makeMytripHomePage(failed) -->
   <test name="makeMytripFilghtPage(failed)">
     <classes>
       <class name="com.PageTestClasses.FlightPageTest">
