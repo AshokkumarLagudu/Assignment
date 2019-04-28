@@ -1,13 +1,8 @@
 package com.PageTestClasses;
 
-import static org.testng.Assert.assertEquals;
 
-import java.io.File;
-
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -15,8 +10,7 @@ import com.ashok_Assignment.Base.BaseClass;
 import com.ashok_Assignment.PageClasses.FlightsPage;
 import com.ashok_Assignment.PageClasses.HomePage;
 import com.ashok_Assignment.utils.UtilClass;
-import com.mongodb.MapReduceCommand.OutputType;
-import com.mongodb.util.Util;
+
 
 public class FlightPageTest extends BaseClass {
 
@@ -32,11 +26,14 @@ public class FlightPageTest extends BaseClass {
 
 	// Initializing the Application
 	@BeforeClass
-	public void openBrowser() {
+	public void openBrowser() throws InterruptedException {
 		initialization();
 		homePage = new HomePage();
 
 		Assert.assertEquals(homePage.getHomePageTitle(), UtilClass.homepageTitle);
+		
+		//Thread.sleep(3000);
+		homePage.closeImage();
 		homePage.clickOnFlights();
 		homePage.clickOnRoundtrip();
 		homePage.setDepartureCity("Delhi");
@@ -47,32 +44,41 @@ public class FlightPageTest extends BaseClass {
 
 		homePage.clickOnReturnDate();
 		homePage.selectReturnDate(dateoftoday, UtilClass.returnDateAfterNoOfDays);
-
 		flightsPage = homePage.clickOnSearch();
+		
 	}
 
 	// validating title of the flight page
 	// validating active flight logo is present or not
 	@Test(priority = 1)
-	public void validateFlightPageTest() {
+	public void validateFlightPageTest() throws InterruptedException {
 
 		boolean activeFlightLogo = flightsPage.get_active_flight_logo().isDisplayed();
+		if(activeFlightLogo!=true){
+			driver.navigate().refresh();
+			Thread.sleep(3000);
+			activeFlightLogo = flightsPage.get_active_flight_logo().isDisplayed();
+		}
 		Assert.assertEquals(activeFlightLogo, true);
 
 		Assert.assertEquals(flightsPage.get_title_Of_FlightPage(), UtilClass.flightPageTitle);
 		System.out.println("Title of the flight page-->" + flightsPage.get_title_Of_FlightPage());
 		System.out.println("");
 
+		
 		try {
 			flightsPage.get_Place_and_Date();
 		} catch (Exception e) {
-
+			
 			System.out.println("****Error while geting Journey details****");
 		}
+		
+		Assert.assertEquals(flightsPage.departureCity, "New Delhi");
+		Assert.assertEquals(flightsPage.arrivalCity, "Bengaluru");
 	}
 
 	// print number of all type of Flights present on the page
-	@Test(priority = 2)
+	@Test(priority = 2,dependsOnMethods={"validateFlightPageTest"})
 	public void display_noOf_FlightTest() throws InterruptedException {
 		flightsPage.pageScrollDown();
 		int totaldepartureFlights = flightsPage.get_noOf_departureFlights();
@@ -91,7 +97,7 @@ public class FlightPageTest extends BaseClass {
 	}
 
 	// print number of Non-Stop Flights present on the page
-	@Test(priority = 3)
+	@Test(priority = 3,dependsOnMethods={"validateFlightPageTest"})
 	public void display_noOf_Non_Stop_FlightTest() throws InterruptedException {
 		flightsPage.resetAllCheckBoxes();
 		flightsPage.click_On_Non_Stop();
@@ -114,7 +120,7 @@ public class FlightPageTest extends BaseClass {
 	}
 
 	// print number of Single-Stop Flights present on the page
-	@Test(priority = 4)
+	@Test(priority = 4,dependsOnMethods={"validateFlightPageTest"})
 	public void display_noOf_One_Stop_FlightTest() throws InterruptedException {
 		flightsPage.resetAllCheckBoxes();
 		flightsPage.click_On_One_Stop();
@@ -141,7 +147,7 @@ public class FlightPageTest extends BaseClass {
 	// compare selected flight price and actual flight price displayed on bottom
 	// of the page
 	// validate total price of the Flights
-	@Test(priority = 5)
+	@Test(priority = 5,dependsOnMethods={"validateFlightPageTest"})
 	public void selectFlightTest() throws InterruptedException {
 
 		// get max departure flights numbers to select

@@ -11,10 +11,13 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.ashok_Assignment.utils.DriverFactory;
 import com.ashok_Assignment.utils.UtilClass;
@@ -25,7 +28,7 @@ public class BaseClass {
 
 	public static WebDriver driver=null;
 	public static Properties prop=null;
-	
+	private static WebDriverWait wait ;
 	//Initialize the property file
 	public BaseClass(){
 		prop=new Properties();
@@ -44,9 +47,9 @@ public class BaseClass {
 	
 	//Initialize the browser
 	public void initialization(){
-		String browserName=prop.getProperty("browser");
-		driver=DriverFactory.getDriver(prop.getProperty("browser"), prop.getProperty("url"), prop.getProperty("chromeDriverPath"));
 		
+		driver=DriverFactory.getDriver(prop.getProperty("browser"), prop.getProperty("url"), prop.getProperty("chromeDriverPath"));
+		wait=new WebDriverWait(driver, UtilClass.wedriverWait);
 	}
 	
 	public void takeScreenShot(String methodName) {
@@ -60,9 +63,29 @@ public class BaseClass {
 				}
 	   }
 	
+	//wait until element clickable state and click
+    public void waitUntilElementclickable(WebElement element){
+    	
+    	wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    	
+	}
+    
+    //wait until element present
+    public void waitUntilElementVisible(WebElement element){
+    	wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    
+    //wait and switch to frame
+	public void waitUntilFrametobeAvailableAndSwitchTo(WebElement element){
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
+	}
+	
 	public void killBrowser(){
 		driver.quit();
-		driver=null;
+		if(driver!=null){
+			driver=null;
+		}
+		
 	}
 
 }

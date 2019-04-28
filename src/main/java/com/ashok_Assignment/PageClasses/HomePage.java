@@ -12,7 +12,7 @@ import com.ashok_Assignment.utils.UtilClass;
 
 public class HomePage extends BaseClass {
 	private String currentDate = "";
-	WebDriverWait wait = new WebDriverWait(driver, UtilClass.wedriverWait);
+	//WebDriverWait wait = new WebDriverWait(driver, UtilClass.wedriverWait);
 
 	@FindBy(xpath = "//a[@class='mmtLogo makeFlex']")
 	private WebElement logo;
@@ -52,6 +52,12 @@ public class HomePage extends BaseClass {
 
 	@FindBy(xpath = "//span[@aria-label='Next Month']")
 	private WebElement nextMonth;
+	
+	@FindBy(xpath="//div[@class='container']//a[@class='close']/i")
+	private WebElement imageCloseButton;
+	
+	@FindBy(xpath="//iframe[@name='notification-frame-~19714b447']")
+	private WebElement imageFrame;
 
 	@FindBy(xpath = "//a[text()='Search']")
 	private WebElement searchButton;
@@ -61,12 +67,16 @@ public class HomePage extends BaseClass {
 	}
 
 	public void clickOnReturnDate() {
-		returnButton.click();
+		
+		waitUntilElementclickable(returnButton);
+		
+		
 	}
 
 	//set return journy date
 	public void selectReturnDate(String dateoftoday, int noOfdays) {
 
+		
 		int Day = Integer.parseInt(dateoftoday);
 		
 		int month=UtilClass.currentMonth();//get current month number
@@ -114,7 +124,9 @@ public class HomePage extends BaseClass {
 
 	//click on current date
 	public String clickOnTodayDate() {
-		wait.until(ExpectedConditions.elementToBeClickable(departureButton)).click();
+		
+		waitUntilElementclickable(departureButton);
+		
 		currentDate = todayDate.getText();
 		todayDate.click();
 		return currentDate;
@@ -122,53 +134,69 @@ public class HomePage extends BaseClass {
 
 	//click on flights
 	public void clickOnFlights() {
-		wait.until(ExpectedConditions.elementToBeClickable(flights)).click();
+		
+		waitUntilElementclickable(flights);
+		
 
 	}
 
 	//click on roundtrip
 	public void clickOnRoundtrip() {
-		wait.until(ExpectedConditions.elementToBeClickable(roundTrip)).click();
-
+		waitUntilElementclickable(roundTrip);
+		
 	}
 
-	
-	public String getLogoText() {
-		wait.until(ExpectedConditions.invisibilityOf(logo));
-		String logo_text = logo.getText();
-		return logo_text;
-	}
 
 	//Enter city name in From texbox
 	public void setDepartureCity(String cityName) {
-		fromButton.click();
-		fromTextBox.sendKeys(cityName);
+		
 		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			waitUntilElementclickable(fromButton);
+			fromTextBox.clear();
+			fromTextBox.sendKeys(cityName);
+			waitUntilElementVisible(selectDelhi);
+			selectDelhi.click();
+			
+		} catch (Exception e) {
+			
+			waitUntilElementclickable(fromButton);
+			fromTextBox.clear();
+			fromTextBox.sendKeys(cityName);
+			waitUntilElementVisible(selectDelhi);
+			selectDelhi.click();
+		
 		}
-		selectDelhi.click();
+		
+		
+		
 	}
 
 	//Enter city name in To texbox
 	public void setDestinationCity(String cityName) {
-		wait.until(ExpectedConditions.elementToBeClickable(toButton));
-		toTextBox.sendKeys(cityName);
-
+		
 		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
+			waitUntilElementclickable(toButton);
+			toTextBox.clear();
+			toTextBox.sendKeys(cityName);
+			waitUntilElementVisible(selectBangalore);
+			selectBangalore.click();
+		} catch (Exception e) {
+			waitUntilElementclickable(toButton);
+			toTextBox.clear();
+			toTextBox.sendKeys(cityName);
+			waitUntilElementVisible(selectBangalore);
+			selectBangalore.click();
+			
+			//e.printStackTrace();
 		}
-		selectBangalore.click();
+	
+		
 	}
 
 	//click on search button
 	public FlightsPage clickOnSearch() {
-		wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+		waitUntilElementclickable(searchButton);
+		
 		driver.manage().deleteAllCookies();
 		return new FlightsPage();
 	}
@@ -176,6 +204,18 @@ public class HomePage extends BaseClass {
 	//get home page title
 	public String getHomePageTitle() {
 		return driver.getTitle();
+	}
+	
+	public void closeImage(){
+		
+		try {
+			waitUntilFrametobeAvailableAndSwitchTo(imageFrame);
+			waitUntilElementclickable(imageCloseButton);
+		} catch (Exception e) {
+			System.out.println("Image not displayed");
+		}
+		
+		
 	}
 
 }

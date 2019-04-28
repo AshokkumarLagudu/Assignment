@@ -13,8 +13,9 @@ import com.ashok_Assignment.Base.BaseClass;
 import com.ashok_Assignment.utils.UtilClass;
 
 public class FlightsPage extends BaseClass {
-
-	WebDriverWait wait = new WebDriverWait(driver, UtilClass.wedriverWait);
+      public String departureCity="";
+      public String arrivalCity="";
+	//WebDriverWait wait = new WebDriverWait(driver, UtilClass.wedriverWait);
 
 	@FindBy(xpath = "//div[@class='splitVw-sctn pull-left']//div[2]//div[@class='fli-list splitVw-listing']")
 	private List<WebElement> departureFlights;
@@ -57,7 +58,14 @@ public class FlightsPage extends BaseClass {
 		int i = 1;
 
 		for (WebElement element : dateAndPlace) {
+			
+			waitUntilElementVisible(element);
 			String placeDetails = element.getText();
+			if(placeDetails.startsWith("New Delhi")){
+				departureCity=placeDetails.substring(0, 9);
+			}else if(placeDetails.startsWith("Bengaluru")){
+				arrivalCity=placeDetails.substring(0,9);
+			}
 			System.out.println(placeDetails);
 			if (i == 2) {
 				System.out.println("");
@@ -70,22 +78,27 @@ public class FlightsPage extends BaseClass {
 
 	// Reset all checkboxes
 	public void resetAllCheckBoxes() {
-		reset.click();
+		waitUntilElementclickable(reset);
+		
 	}
 
 	// click on checkbox of Non Stop
 	public void click_On_Non_Stop() {
-		nonStop.click();
+		if(!nonStop.isSelected()){
+			nonStop.click();
+		}	
 	}
 
 	// click on checkbox of One Stop
 	public void click_On_One_Stop() {
-		oneStop.click();
+		if(!oneStop.isSelected()){
+			oneStop.click();
+		}	
 	}
 
 	// Scrolling page
 	public void pageScrollDown() throws InterruptedException {
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		int scroll = 2000;
 		for (int i = 0; i <= 10; i++) {
 			String scrollStr = Integer.toString(scroll);
@@ -95,16 +108,15 @@ public class FlightsPage extends BaseClass {
 		}
 
 		UtilClass.scrollPageDown(driver);
-		Thread.sleep(5000);
-		UtilClass.scrollPage(driver, activeFlightLogo);
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+		UtilClass.scrollPageToView(driver, activeFlightLogo);
+		Thread.sleep(3000);
 
 	}
 
 	// get total noOf departure Flights
 	public int get_noOf_departureFlights() {
-
-		// wait.until(ExpectedConditions.visibilityOfAllElements(departureFlights));
+	
 		int totalnoOfFlights = departureFlights.size();
 
 		return totalnoOfFlights;
@@ -113,7 +125,6 @@ public class FlightsPage extends BaseClass {
 	// get total noOf return Flights
 	public int get_noOf_returnFlights() {
 
-		// wait.until(ExpectedConditions.visibilityOfAllElements(returnFlights));
 		int totalnoOfFlights = returnFlights.size();
 
 		return totalnoOfFlights;
@@ -135,7 +146,7 @@ public class FlightsPage extends BaseClass {
 		String flight = "//div[@class='splitVw-sctn pull-left']//div[2]//div[@class='fli-list splitVw-listing']["
 				+ flightNum + "]//label[@class='splitVw-radio clearfix cursor_pointer']/div[1]/span[1]/span";
 
-		UtilClass.scrollPage(driver, driver.findElement(By.xpath(flight)));
+		UtilClass.scrollPageToView(driver, driver.findElement(By.xpath(flight)));
 		WebElement radio = driver.findElement(By.xpath(flight));
 		if (!radio.isSelected()) {
 			UtilClass.clickOnElement(driver, radio);
@@ -148,7 +159,7 @@ public class FlightsPage extends BaseClass {
 		String flight = "//div[@class='splitVw-sctn pull-right']//div[2]//div[@class='fli-list splitVw-listing']["
 				+ flightNum + "]//label[@class='splitVw-radio clearfix cursor_pointer']/div[1]/span[1]/span";
 
-		UtilClass.scrollPage(driver, driver.findElement(By.xpath(flight)));
+		UtilClass.scrollPageToView(driver, driver.findElement(By.xpath(flight)));
 		WebElement radio = driver.findElement(By.xpath(flight));
 		if (!radio.isSelected()) {
 			UtilClass.clickOnElement(driver, radio);
@@ -161,7 +172,7 @@ public class FlightsPage extends BaseClass {
 		String price = "//div[@class='splitVw-sctn pull-left']//div[2]//div[@class='fli-list splitVw-listing']["
 				+ flightNum + "]//label[@class='splitVw-radio clearfix cursor_pointer']/div[2]/div[3]/p/span[text()]";
 
-		UtilClass.scrollPage(driver, driver.findElement(By.xpath(price)));
+		UtilClass.scrollPageToView(driver, driver.findElement(By.xpath(price)));
 		String priceOfFlight = driver.findElement(By.xpath(price)).getText().replaceAll("[^0-9]", "");
 		int priceInt = Integer.parseInt(priceOfFlight);
 
@@ -174,7 +185,7 @@ public class FlightsPage extends BaseClass {
 		String price = "//div[@class='splitVw-sctn pull-right']//div[2]//div[@class='fli-list splitVw-listing']["
 				+ flightNum + "]//label[@class='splitVw-radio clearfix cursor_pointer']/div[2]/div[3]/p/span[text()]";
 
-		UtilClass.scrollPage(driver, driver.findElement(By.xpath(price)));
+		UtilClass.scrollPageToView(driver, driver.findElement(By.xpath(price)));
 
 		String priceOfFlight = driver.findElement(By.xpath(price)).getText().replaceAll("[^0-9]", "");
 		int priceInt = Integer.parseInt(priceOfFlight);
@@ -183,7 +194,7 @@ public class FlightsPage extends BaseClass {
 
 	// get actual price of departure flight
 	public int get_actual_departure_price() {
-		UtilClass.scrollPage(driver, actual_price_of_departure);
+		UtilClass.scrollPageToView(driver, actual_price_of_departure);
 		String price = actual_price_of_departure.getText().replaceAll("[^0-9]", "");
 
 		int priceInt = Integer.parseInt(price);
@@ -192,7 +203,7 @@ public class FlightsPage extends BaseClass {
 
 	// get actual price of return flight
 	public int get_actual_return_price() {
-		UtilClass.scrollPage(driver, actual_price_of_return);
+		UtilClass.scrollPageToView(driver, actual_price_of_return);
 		String price = actual_price_of_return.getText().replaceAll("[^0-9]", "");
 		int priceInt = Integer.parseInt(price);
 		return priceInt;
@@ -200,7 +211,7 @@ public class FlightsPage extends BaseClass {
 
 	// get total price of tickets
 	public int get_total_price() {
-		UtilClass.scrollPage(driver, totalPrice);
+		UtilClass.scrollPageToView(driver, totalPrice);
 		String stringPrice = totalPrice.getText().replaceAll("[^0-9]", "");
 
 		int priceInt = Integer.parseInt(stringPrice);

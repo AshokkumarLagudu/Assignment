@@ -39,8 +39,9 @@ public class HomePageTest extends BaseClass {
 	//Enter the details in From and To texboxes 
 	//click on the Search box
 	@Test(priority=2)
-	public void searchFlightsTest(){
-		
+	public void searchFlightsTest() throws InterruptedException{
+		Thread.sleep(3000);
+		homePage.closeImage();
 		homePage.clickOnFlights();
 		homePage.clickOnRoundtrip();
 		homePage.setDepartureCity("Delhi");
@@ -57,7 +58,15 @@ public class HomePageTest extends BaseClass {
 		System.out.println("Title of the page-->"+flightsPage.get_title_Of_FlightPage());
 		Assert.assertEquals(flightsPage.get_title_Of_FlightPage(), UtilClass.flightPageTitle);
 		
+		try {
+			flightsPage.get_Place_and_Date();
+		} catch (Exception e) {
+
+			System.out.println("****Error while geting Journey details****");
+		}
 		
+		Assert.assertEquals(flightsPage.departureCity, "New Delhi");
+		Assert.assertEquals(flightsPage.arrivalCity, "Bengaluru");
 	}
 	
 	//close browser

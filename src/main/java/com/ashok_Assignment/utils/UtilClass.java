@@ -7,6 +7,7 @@ import java.util.Random;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class UtilClass {
@@ -18,11 +19,13 @@ public class UtilClass {
 	//noOf days after current date 
 	public final static int returnDateAfterNoOfDays=7;//number should be currentDate+number<=61;
 	
-	public final static int wedriverWait=30;
+	public final static int wedriverWait=40;
 	public final static int pageloadTimeout=60;
+	public final static int implicitWait=40;
+	public final static String screenShotFilePath=System.getProperty("user.dir")+"\\Screenshots\\";
 	
-	public final static String screenShotFilePath="C:\\Users\\ASHOK\\workspace\\Selenium_Coding_Assignment_21-04-2019\\Screenshots\\";
-	public final static String propFilePath="C:\\Users\\ASHOK\\workspace\\Selenium_Coding_Assignment_21-04-2019\\src\\main\\"
+	//propeties file path
+	public final static String propFilePath=System.getProperty("user.dir")+"\\src\\main\\"
 				+ "java\\com\\ashok_Assignment\\configuration\\config.properties";
 	//page scrolling down upto end
 	public static void scrollPageDown(WebDriver driver){
@@ -39,7 +42,7 @@ public class UtilClass {
 	}
 	
 	//page scrolling upto element visibile
-	public static void scrollPage(WebDriver driver,WebElement element){
+	public static void scrollPageToView(WebDriver driver,WebElement element){
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		
 		js.executeScript("arguments[0].scrollIntoView();",element );
