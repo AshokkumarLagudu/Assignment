@@ -32,7 +32,7 @@ public class FlightPageTest extends BaseClass {
 
 		Assert.assertEquals(homePage.getHomePageTitle(), UtilClass.homepageTitle);
 		
-		//Thread.sleep(3000);
+		
 		try {
 			
 			homePage.clickOnFlights();

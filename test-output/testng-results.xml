@@ -2,56 +2,56 @@
 <testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="Selenium_Coding_Assignment_21-04-2019_suite" duration-ms="166927" started-at="2019-04-28T10:22:25Z" finished-at="2019-04-28T10:25:12Z">
+  <suite name="Selenium_Coding_Assignment_21-04-2019_suite" duration-ms="174738" started-at="2019-04-28T11:23:40Z" finished-at="2019-04-28T11:26:35Z">
     <groups>
     </groups>
-    <test name="makeMytripHomePage" duration-ms="51616" started-at="2019-04-28T10:22:25Z" finished-at="2019-04-28T10:23:17Z">
+    <test name="makeMytripHomePage" duration-ms="56458" started-at="2019-04-28T11:23:40Z" finished-at="2019-04-28T11:24:37Z">
       <class name="com.PageTestClasses.HomePageTest">
-        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.PageTestClasses.HomePageTest@5e5792a0]" name="openBrowser" is-config="true" duration-ms="36578" started-at="2019-04-28T15:52:25Z" finished-at="2019-04-28T15:53:02Z">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.PageTestClasses.HomePageTest@5e5792a0]" name="openBrowser" is-config="true" duration-ms="35504" started-at="2019-04-28T16:53:40Z" finished-at="2019-04-28T16:54:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="PASS" signature="verifyHomepageTitle()[pri:1, instance:com.PageTestClasses.HomePageTest@5e5792a0]" name="verifyHomepageTitle" duration-ms="54" started-at="2019-04-28T15:53:02Z" finished-at="2019-04-28T15:53:02Z">
+        <test-method status="PASS" signature="verifyHomepageTitle()[pri:1, instance:com.PageTestClasses.HomePageTest@5e5792a0]" name="verifyHomepageTitle" duration-ms="5643" started-at="2019-04-28T16:54:16Z" finished-at="2019-04-28T16:54:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyHomepageTitle -->
-        <test-method status="PASS" signature="searchFlightsTest()[pri:2, instance:com.PageTestClasses.HomePageTest@5e5792a0]" name="searchFlightsTest" duration-ms="14284" started-at="2019-04-28T15:53:02Z" finished-at="2019-04-28T15:53:16Z">
+        <test-method status="PASS" signature="searchFlightsTest()[pri:2, instance:com.PageTestClasses.HomePageTest@5e5792a0]" name="searchFlightsTest" duration-ms="14586" started-at="2019-04-28T16:54:22Z" finished-at="2019-04-28T16:54:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchFlightsTest -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.PageTestClasses.HomePageTest@5e5792a0]" name="closeBrowser" is-config="true" duration-ms="660" started-at="2019-04-28T15:53:16Z" finished-at="2019-04-28T15:53:17Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.PageTestClasses.HomePageTest@5e5792a0]" name="closeBrowser" is-config="true" duration-ms="687" started-at="2019-04-28T16:54:36Z" finished-at="2019-04-28T16:54:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- com.PageTestClasses.HomePageTest -->
     </test> <!-- makeMytripHomePage -->
-    <test name="makeMytripFilghtPage" duration-ms="115287" started-at="2019-04-28T10:23:17Z" finished-at="2019-04-28T10:25:12Z">
+    <test name="makeMytripFilghtPage" duration-ms="118228" started-at="2019-04-28T11:24:37Z" finished-at="2019-04-28T11:26:35Z">
       <class name="com.PageTestClasses.FlightPageTest">
-        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="openBrowser" is-config="true" duration-ms="41609" started-at="2019-04-28T15:53:17Z" finished-at="2019-04-28T15:53:58Z">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="openBrowser" is-config="true" duration-ms="51017" started-at="2019-04-28T16:54:37Z" finished-at="2019-04-28T16:55:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="PASS" signature="validateFlightPageTest()[pri:1, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="validateFlightPageTest" duration-ms="3626" started-at="2019-04-28T15:53:58Z" finished-at="2019-04-28T15:54:02Z">
+        <test-method status="PASS" signature="validateFlightPageTest()[pri:1, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="validateFlightPageTest" duration-ms="4705" started-at="2019-04-28T16:55:28Z" finished-at="2019-04-28T16:55:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateFlightPageTest -->
-        <test-method status="PASS" signature="display_noOf_FlightTest()[pri:2, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="display_noOf_FlightTest" duration-ms="19935" started-at="2019-04-28T15:54:02Z" depends-on-methods="com.PageTestClasses.FlightPageTest.validateFlightPageTest" finished-at="2019-04-28T15:54:22Z">
+        <test-method status="PASS" signature="display_noOf_FlightTest()[pri:2, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="display_noOf_FlightTest" duration-ms="18619" started-at="2019-04-28T16:55:33Z" depends-on-methods="com.PageTestClasses.FlightPageTest.validateFlightPageTest" finished-at="2019-04-28T16:55:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- display_noOf_FlightTest -->
-        <test-method status="PASS" signature="display_noOf_Non_Stop_FlightTest()[pri:3, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="display_noOf_Non_Stop_FlightTest" duration-ms="20263" started-at="2019-04-28T15:54:22Z" depends-on-methods="com.PageTestClasses.FlightPageTest.validateFlightPageTest" finished-at="2019-04-28T15:54:42Z">
+        <test-method status="PASS" signature="display_noOf_Non_Stop_FlightTest()[pri:3, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="display_noOf_Non_Stop_FlightTest" duration-ms="17254" started-at="2019-04-28T16:55:51Z" depends-on-methods="com.PageTestClasses.FlightPageTest.validateFlightPageTest" finished-at="2019-04-28T16:56:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- display_noOf_Non_Stop_FlightTest -->
-        <test-method status="PASS" signature="display_noOf_One_Stop_FlightTest()[pri:4, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="display_noOf_One_Stop_FlightTest" duration-ms="20614" started-at="2019-04-28T15:54:42Z" depends-on-methods="com.PageTestClasses.FlightPageTest.validateFlightPageTest" finished-at="2019-04-28T15:55:03Z">
+        <test-method status="PASS" signature="display_noOf_One_Stop_FlightTest()[pri:4, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="display_noOf_One_Stop_FlightTest" duration-ms="17416" started-at="2019-04-28T16:56:09Z" depends-on-methods="com.PageTestClasses.FlightPageTest.validateFlightPageTest" finished-at="2019-04-28T16:56:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- display_noOf_One_Stop_FlightTest -->
-        <test-method status="PASS" signature="selectFlightTest()[pri:5, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="selectFlightTest" duration-ms="8539" started-at="2019-04-28T15:55:03Z" depends-on-methods="com.PageTestClasses.FlightPageTest.validateFlightPageTest" finished-at="2019-04-28T15:55:11Z">
+        <test-method status="PASS" signature="selectFlightTest()[pri:5, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="selectFlightTest" duration-ms="8453" started-at="2019-04-28T16:56:26Z" depends-on-methods="com.PageTestClasses.FlightPageTest.validateFlightPageTest" finished-at="2019-04-28T16:56:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- selectFlightTest -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="closeBrowser" is-config="true" duration-ms="679" started-at="2019-04-28T15:55:11Z" finished-at="2019-04-28T15:55:12Z">
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.PageTestClasses.FlightPageTest@146ba0ac]" name="closeBrowser" is-config="true" duration-ms="748" started-at="2019-04-28T16:56:34Z" finished-at="2019-04-28T16:56:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->

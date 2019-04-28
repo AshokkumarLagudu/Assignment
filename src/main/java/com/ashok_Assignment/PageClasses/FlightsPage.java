@@ -110,7 +110,7 @@ public class FlightsPage extends BaseClass {
 		UtilClass.scrollPageDown(driver);
 		Thread.sleep(3000);
 		UtilClass.scrollPageToView(driver, activeFlightLogo);
-		Thread.sleep(3000);
+		
 
 	}
 
